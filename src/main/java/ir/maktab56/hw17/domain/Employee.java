@@ -16,6 +16,15 @@ public class Employee extends Profile {
 
     }
 
+    public Employee(String username, String password, boolean isActive, boolean isManager) {
+        setUsername(username);
+        setPassword(password);
+        this.isActive = isActive;
+        this.isManager = isManager;
+        setRegisterDate(Date.valueOf(LocalDate.now()));
+
+    }
+
     public Employee(String firstname, String lastname, String username, String password, boolean isActive, boolean isManager, int age) {
         setFirstname(firstname);
         setLastname(lastname);

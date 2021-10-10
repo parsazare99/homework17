@@ -27,6 +27,26 @@ public class EmployeeServiceImpl extends BaseEntityServiceImpl<Employee, Integer
     }
 
     @Override
+    public boolean existByUsername(String username) {
+        return repository.existByUsername(username);
+    }
+
+    @Override
+    public boolean existByPassword(String username, String password) {
+        return repository.existByPassword(username,password);
+    }
+
+    @Override
+    public Employee findByUsernameAndPassword(String username, String password) {
+        return repository.findByUsernameAndPassword(username,password);
+    }
+
+    @Override
+    public Employee findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
     public Employee registerEmployee() {
         Scanner input = new Scanner(System.in);
         Employee employee = new Employee();

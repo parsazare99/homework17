@@ -16,5 +16,11 @@ public interface UserService extends BaseEntityService<User, Integer> {
 
     void deleteAccount(User user);
 
+    boolean existByUsername(String username);
 
+    boolean existByPassword(String username, String password);
+
+    User findByUsernameAndPassword(String username, String password);
+
+    User findByUsername(String username);
 }

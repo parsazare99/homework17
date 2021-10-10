@@ -208,5 +208,25 @@ public class UserServiceImpl extends BaseEntityServiceImpl<User, Integer, UserRe
 
     }
 
+    @Override
+    public boolean existByUsername(String username) {
+        return repository.existByUsername(username);
+    }
+
+    @Override
+    public boolean existByPassword(String username, String password) {
+        return repository.existByPassword(username, password);
+    }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        return repository.findByUsernameAndPassword(username, password);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
 
 }

@@ -8,6 +8,7 @@ import ir.maktab56.hw17.domain.User;
 import java.util.List;
 
 public interface TicketService extends BaseEntityService<Ticket, Integer> {
+    List<Ticket> findByOriginAndDestination(String s1, String s2);
 
     Ticket createTicket(Employee employee);
 

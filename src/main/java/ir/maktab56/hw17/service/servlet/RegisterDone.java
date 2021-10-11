@@ -9,6 +9,7 @@ import ir.maktab56.hw17.service.imp.EmployeeServiceImpl;
 import ir.maktab56.hw17.service.imp.UserServiceImpl;
 import ir.maktab56.hw17.util.HibernateUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,7 @@ import java.io.PrintWriter;
 
 @WebServlet("/registerDone")
 public class RegisterDone extends HttpServlet {
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,39 +38,21 @@ public class RegisterDone extends HttpServlet {
 
         out.println("wellcome " + username);
 
-
         if (userTypes[0].equals("customer")) {
 
             User user = new User(username, password);
 
             userService.save(user);
 
+            RequestDispatcher dispatcher = request.getRequestDispatcher("showCustomerMenu");
+            dispatcher.forward(request, response);
 
         } else {
 
             Employee employee = new Employee(username, password, false, false);
             employeeService.save(employee);
 
-
         }
-
-
-//        HttpSession session = request.getSession();
-//
-//        session.setAttribute("username", request.getParameter("uname"));
-//        session.setAttribute("password", request.getParameter("pword"));
-
-
-        // String username = request.getParameter("username");
-        // String password = request.getParameter("password");
-
-        //request.setAttribute("pass", username);
-
-//        out.println("welcome , " + name);
-//
-//        HttpSession session = request.getSession();
-//        session.setAttribute("username", name);
-//        out.println("<a href='profile'>visit your pofile</a>");
 
     }
 }

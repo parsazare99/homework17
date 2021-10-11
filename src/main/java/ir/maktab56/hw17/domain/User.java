@@ -18,25 +18,18 @@ public class User extends Profile {
         setRegisterDate(Date.valueOf(LocalDate.now()));
     }
 
-
-//    @ManyToMany(cascade = CascadeType.ALL )
-//    private List<Ticket> ticketList = new ArrayList<>();
-
-//    public List<Ticket> getTicketList() {
-//        return ticketList;
-//    }
-//
-//    public void setTicketList(List<Ticket> ticketList) {
-//        this.ticketList = ticketList;
-//    }
-
     @Override
     public String toString() {
-        return "User{" +
-                "username='" + getUsername() + '\'' +
-                ", password='" + getPassword() + '\'' +
-                ", isBlocked=" + isBlocked() +
-                ", massage='" + getMassage() + '\'' +
-                '}';
+        return
+                "<br><br> ID = '" + getId() + '\'' +
+                        "<br><br> Firstname = '" + getFirstname() + '\'' +
+                        "<br><br> Lastname = '" + getLastname() + '\'' +
+                        "<br><br> Username = '" + getUsername() + '\'' +
+                        "<br><br> Password = '" + getPassword() + '\'' +
+                        "<br><br> Age= '" + getAge() + '\'' +
+                        "<br><br> National Code = '" + getNationalCode() + '\'' +
+                        "<br><br> Phone number = '" + getPhonenumber() + '\'' +
+                        "<br><br> isBlocked = " + isBlocked() +
+                        "<br><br> massage = '" + getMassage() + '\'';
     }
 }

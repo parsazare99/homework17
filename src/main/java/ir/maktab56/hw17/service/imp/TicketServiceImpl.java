@@ -23,6 +23,11 @@ public class TicketServiceImpl extends BaseEntityServiceImpl<Ticket, Integer, Ti
 
 
     @Override
+    public List<Ticket> findByOriginAndDestination(String s1, String s2) {
+        return repository.findByOriginAndDestination(s1, s2);
+    }
+
+    @Override
     public Ticket createTicket(Employee employee) {
         Scanner s = new Scanner(System.in);
         Scanner i = new Scanner(System.in);

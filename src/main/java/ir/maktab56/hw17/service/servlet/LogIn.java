@@ -24,8 +24,6 @@ public class LogIn extends HttpServlet {
                 "    Enter your username :    <input type=\"text\" name=\"username\"><br><br>\n" +
                 "    Enter your password : <input type=\"text\" name=\"password\"><br><br>\n" +
                 "    <input type=\"submit\" name=\"login\">\n" +
-                "\n" +
-                "\n" +
                 "</form>");
 
     }

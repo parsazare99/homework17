@@ -137,14 +137,14 @@ public class Ticket extends BaseEntity<Integer> {
     public String toString() {
         return "Ticket{" +
                 "  Id ='" + getId() + '\'' +
-                "  origin ='" + origin + '\'' +
+                " , origin = '" + origin + '\'' +
                 " , Destination ='" + destination + '\'' +
-                " , Date =" + departureDate +
-                " , time ='" + time + '\'' +
-                " , company =" + company.getName() +
-                " , price =" + price +
+                " , Date = " + departureDate +
+                " , time = '" + time + '\'' +
+                " , company = " + company.getName() +
+                " , price = " + price +
                 " , capacity =" + capacity +
-                " , Sold =" + sold +
+                " , Sold = " + sold +
                 '}';
     }
 }

@@ -10,6 +10,7 @@ import ir.maktab56.hw17.service.imp.EmployeeServiceImpl;
 import ir.maktab56.hw17.service.imp.UserServiceImpl;
 import ir.maktab56.hw17.util.HibernateUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,7 @@ public class LogInDone extends HttpServlet {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl(new EmployeeRepositoryImpl(HibernateUtil.getEntityMangerFactory().createEntityManager()));
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -38,16 +40,13 @@ public class LogInDone extends HttpServlet {
         if (isCustomer) {
             if (userService.existByPassword(username, password)) {
                 User user = userService.findByUsernameAndPassword(username, password);
+                session.setAttribute("Customer", user);
                 System.out.println(" is user");
-                out.println("<html><head></head><center>\n" +
-                        "  <br><br><br>\n" +
-                        "  <a href=\"buyTicket\"> Buy Ticket </a><br><br>\n" +
-                        "  <a href=\"search\"> Search Ticket </a><br><br>\n" +
-                        "  <a href=\"showProfile\"> Show My profile</a><br><br>\n" +
-                        "  <a href=\"editProfile\"> Edit My profile </a><br><br>\n" +
-                        "  <a href=\"showTickets\"> Show my Tickets </a><br><br>\n" +
-                        "  <a href=\"refund\"> Refund Ticket </a><br><br>\n" +
-                        "</center></body></html>");
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("showCustomerMenu");
+                dispatcher.forward(request, response);
+ //               response.sendRedirect("showCustomerMenu");
+
             } else {
 
                 out.println("<html><body bgcolor='red'>\n" +
@@ -61,6 +60,7 @@ public class LogInDone extends HttpServlet {
 
             if (employeeService.existByPassword(username, password)) {
                 Employee employee = employeeService.findByUsernameAndPassword(username, password);
+                session.setAttribute("employee", employee);
                 System.out.println("is employeee");
             } else {
                 out.println("<html><body bgcolor='red'>\n" +

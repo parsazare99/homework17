@@ -129,7 +129,6 @@ public class TicketServiceImpl extends BaseEntityServiceImpl<Ticket, Integer, Ti
 
     }
 
-
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------
@@ -145,6 +144,26 @@ public class TicketServiceImpl extends BaseEntityServiceImpl<Ticket, Integer, Ti
                 System.out.println(ticket.toString());
             }
         }
+    }
+
+    @Override
+    public int getTicketCount(User user) {
+        int k = 0;
+        List<Ticket> ticketList = findAll();
+        if (ticketList.isEmpty()) {
+
+        } else {
+            for (Ticket ticket : ticketList) {
+                for (int i = 0; i < ticket.getUserList().size(); i++) {
+                    if (ticket.getUserList().get(i).getUsername().equals(user.getUsername())) {
+                        k++;
+                    }
+
+                }
+            }
+        }
+
+        return k;
     }
 
     @Override

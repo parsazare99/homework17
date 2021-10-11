@@ -73,10 +73,10 @@ public class EditProfileDone extends HttpServlet {
         userService.save(user);
         out.println("<br><h1>Changes saved successfully</h1><br><br>");
         out.println(user);
-//        out.println("<html><head></head><center>\n" +
-//                "  <br><br><br>\n" +
-//                "  <a href=\"loginDone\"> Back To Home </a><br><br>\n" +
-//                "</center></body></html>");
+        out.println("<html><head></head><center>\n" +
+                "  <br><br><br>\n" +
+                "  <a href=\"showCustomerMenu\"> Back To Home </a><br><br>\n" +
+                "</center></body></html>");
 
     }
 }

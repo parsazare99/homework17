@@ -20,6 +20,8 @@ public interface TicketService extends BaseEntityService<Ticket, Integer> {
 
     //-----------------------------------------------------
 
+
+    int getTicketCount(User user);
     void showUserTickets(User user);
     void showSortedTickets(String s1, String s2);
 

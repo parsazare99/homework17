@@ -126,12 +126,14 @@ public class Profile extends BaseEntity<Integer> {
 
     @Override
     public String toString() {
-        return ", ID='" + getId() + '\'' +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", age=" + age +
-                ", nationalCode='" + nationalCode + '\'' +
-                ", massage='" + massage + '\'' +
-                ", isBlocked=" + isBlocked;
+        return ", ID ='" + getId() + '\'' +
+                "firstname ='" + firstname + '\'' +
+                ", lastname ='" + lastname + '\'' +
+                ", username ='" + username + '\'' +
+                ", password ='" + password + '\'' +
+                ", age =" + age +
+                ", nationalCode ='" + nationalCode + '\'' +
+                ", massage ='" + massage + '\'';
+        // ", isBlocked =" + isBlocked;
     }
 }

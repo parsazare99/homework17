@@ -53,6 +53,11 @@ public class ShowTickets extends HttpServlet {
                     "  <a href=\"descSortByCompany\">Desc Sort By Company</a><br><br>\n" +
                     "</center></body></html>");
 
+            out.println("<form  action=\"doBuyTicket\">\n" +
+                    "<br><br><br>" +
+                    "Ticket ID :  <input type=\"text\" name=\"ticketId\"><br><br>\n" +
+                    "<input type=\"submit\" name=\"submit\">\n" +
+                    "</form>");
 
         } else {
             out.println("<html><body bgcolor='red'>" +

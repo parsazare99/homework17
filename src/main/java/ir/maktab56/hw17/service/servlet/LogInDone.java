@@ -45,7 +45,7 @@ public class LogInDone extends HttpServlet {
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("showCustomerMenu");
                 dispatcher.forward(request, response);
- //               response.sendRedirect("showCustomerMenu");
+                //               response.sendRedirect("showCustomerMenu");
 
             } else {
 
@@ -62,6 +62,26 @@ public class LogInDone extends HttpServlet {
                 Employee employee = employeeService.findByUsernameAndPassword(username, password);
                 session.setAttribute("employee", employee);
                 System.out.println("is employeee");
+
+                if (employee.isManager()) {
+
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("showManagerMenu");
+                    dispatcher.forward(request, response);
+
+                } else if (!employee.isManager() && employee.isActive()) {
+
+
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("showEmployeeMenu");
+                    dispatcher.forward(request, response);
+
+                } else if (!employee.isManager() && !employee.isActive()) {
+                    out.println("<html><body bgcolor='red'>\n" +
+                            "YOUR ACCOUNT IS NOT ACTIVE !!!\n<br><br>" +
+                            "</body></html>\n");
+
+                }
+
+
             } else {
                 out.println("<html><body bgcolor='red'>\n" +
                         "Username or Password is Wrong!!!\n<br><br>" +

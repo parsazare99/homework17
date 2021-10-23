@@ -49,17 +49,18 @@ public class ShowCustomerTickets extends HttpServlet {
 
     public List<Ticket> showUserTickets(User user) {
         List<Ticket> ticketList = ticketService.findAll();
+        List<Ticket> all = new ArrayList<>();
         for (Ticket ticket : ticketList) {
 
             for (int i = 0; i < ticket.getUserList().size(); i++) {
                 if (ticket.getUserList().get(i).getUsername().equals(user.getUsername())) {
-                    ticketList.add(ticket);
+                    all.add(ticket);
                 }
 
             }
         }
 
-        return ticketList;
+        return all;
     }
 
 

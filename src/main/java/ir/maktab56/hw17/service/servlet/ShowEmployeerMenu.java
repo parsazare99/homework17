@@ -32,6 +32,7 @@ public class ShowEmployeerMenu extends HttpServlet {
                 "  <br><br><br>\n" +
                 "  <a href=\"createTicket\"> Create Ticket </a><br><br>\n" +//done
                 "  <a href=\"deleteTicket\"> Delete Ticket </a><br><br>\n" +//done
+                "  <a href=\"index.jsp\"> EXIT </a><br><br>\n" +
                 "</center></body></html>");
 
     }

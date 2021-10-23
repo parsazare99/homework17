@@ -15,20 +15,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/refund")
 public class Refund extends HttpServlet {
-    TicketServiceImpl ticketService = new TicketServiceImpl(new TicketRepositoryImpl(HibernateUtil.getEntityMangerFactory().createEntityManager()));
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // UserServiceImpl userService = new UserServiceImpl(new UserRepositoryImpl(HibernateUtil.getEntityMangerFactory().createEntityManager()));
+        TicketServiceImpl ticketService = new TicketServiceImpl(new TicketRepositoryImpl(HibernateUtil.getEntityMangerFactory().createEntityManager()));
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("Customer");
+
         List<Ticket> ticketList = showUserTickets(user);
+
         if (ticketList.isEmpty()) {
             out.println("<h2>Ticket List Is Empty</h2>");
         } else {
@@ -46,19 +50,22 @@ public class Refund extends HttpServlet {
     }
 
     public List<Ticket> showUserTickets(User user) {
-        List<Ticket> ticketList = ticketService.findAll();
-        for (Ticket ticket : ticketList) {
+        TicketServiceImpl ticketService = new TicketServiceImpl(new TicketRepositoryImpl(HibernateUtil.getEntityMangerFactory().createEntityManager()));
 
-            for (int i = 0; i < ticket.getUserList().size(); i++) {
-                if (ticket.getUserList().get(i).getUsername().equals(user.getUsername())) {
-                    ticketList.add(ticket);
+        List<Ticket> all = ticketService.findAll();
+
+        List<Ticket> ticketList = new ArrayList<>();
+        for (Ticket t : all) {
+
+            for (int i = 0; i < t.getUserList().size(); i++) {
+
+                if (t.getUserList().get(i).getUsername().equals(user.getUsername())) {
+                    ticketList.add(t);
                 }
 
             }
         }
-
-        return ticketList;
+        return ticketList ;
     }
-
 
 }

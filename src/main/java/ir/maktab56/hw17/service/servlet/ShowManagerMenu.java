@@ -26,7 +26,7 @@ public class ShowManagerMenu extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-      //  HttpSession session = request.getSession();
+        //  HttpSession session = request.getSession();
 
         out.println("<html><head></head><center>\n" +
                 "  <br><br><br>\n" +
@@ -34,6 +34,7 @@ public class ShowManagerMenu extends HttpServlet {
                 "  <a href=\"employeeActivity\"> Active/DeActive Employee </a><br><br>\n" +//done
                 "  <a href=\"showEmployeeForManager\"> Show All Employee</a><br><br>\n" +//done
                 "  <a href=\"deleteTicket\"> Delete Ticket </a><br><br>\n" +//done
+                "  <a href=\"index.jsp\"> EXIT </a><br><br>\n" +
                 "</center></body></html>");
     }
 }

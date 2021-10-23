@@ -32,6 +32,8 @@ public class IncreaceBalanceDone extends HttpServlet {
 
         user.setAccountBalance(user.getAccountBalance() + balance);
         userService.save(user);
+        System.out.println(user.toString());
+        out.println("<br><br><h2>Account Balance"+user.getAccountBalance() +"</h2>");
         out.println("<br><br><h2>Account charging completed successfully</h2>");
 
         out.println("<html><head></head><center>\n" +

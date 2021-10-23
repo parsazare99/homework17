@@ -31,11 +31,12 @@ public class ShowCustomerMenu extends HttpServlet {
         out.println("<html><head></head><center>\n" +
                 "  <br><br><br>\n" +
                 "  <a href=\"buyTicket\"> Buy Ticket </a><br><br>\n" +//done
-                "  <a href=\"increaceBalance\"> Increace Account Balance </a><br><br>\n"+//done
+                "  <a href=\"increaceBalance\"> Increace Account Balance </a><br><br>\n" +//done
                 "  <a href=\"showProfile\"> Show My profile</a><br><br>\n" +//done
                 "  <a href=\"editProfile\"> Edit My profile </a><br><br>\n" +//done
-                "  <a href=\"showMyTickets\"> Show my Tickets </a><br><br>\n"+//done
+                "  <a href=\"showMyTickets\"> Show my Tickets </a><br><br>\n" +//done
                 "  <a href=\"refund\"> Refund Ticket </a><br><br>\n" +//done
+                "  <a href=\"index.jsp\"> EXIT </a><br><br>\n" +
                 "</center></body></html>");
 
     }

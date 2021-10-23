@@ -40,6 +40,7 @@ public class User extends Profile {
                         "<br><br> Lastname = '" + getLastname() + '\'' +
                         "<br><br> Username = '" + getUsername() + '\'' +
                         "<br><br> Password = '" + getPassword() + '\'' +
+                        "<br><br> Account Balance= '" + getAccountBalance() + '\'' +
                         "<br><br> Age= '" + getAge() + '\'' +
                         "<br><br> National Code = '" + getNationalCode() + '\'' +
                         "<br><br> Phone number = '" + getPhonenumber() + '\'' +
